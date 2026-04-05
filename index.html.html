@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>System Breach</title>
+
+<style>
+body {
+background: black;
+color: #00ff00;
+font-family: "Courier New", monospace;
+display: flex;
+justify-content: center;
+align-items: center;
+height: 100vh;
+font-size: 2em;
+text-shadow: 0 0 5px #00ff00;
+}
+
+.cursor {
+display: inline-block;
+width: 10px;
+background: #00ff00;
+margin-left: 5px;
+animation: blink 1s infinite;
+}
+
+@keyframes blink {
+0% { opacity: 1; }
+50% { opacity: 0; }
+100% { opacity: 1; }
+}
+</style>
+
+</head>
+
+<body>
+
+<div>
+<span id="text"></span>
+<span class="cursor"></span>
+</div>
+
+<script>
+const message = "a friend of his, is an enemy of mine.";
+let index = 0;
+
+function typeEffect() {
+if (index < message.length) {
+document.getElementById("text").innerHTML += message.charAt(index);
+index++;
+setTimeout(typeEffect, 70);
+}
+}
+
+window.onload = typeEffect;
+</script>
+
+</body>
+</html>
